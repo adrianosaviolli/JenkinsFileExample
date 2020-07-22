@@ -5,7 +5,7 @@ node {
     }
     stage('Checkout') {
         checkout(
-            [$class: 'GitSCM', branches: [[name: "master"]],
+            [$class: 'GitSCM', branches: [[name: "develop"]],
             extensions: [[$class: 'CloneOption', shallow: true, timeout: 50]],
             userRemoteConfigs: [[url: "$gitURL"]]]
         )

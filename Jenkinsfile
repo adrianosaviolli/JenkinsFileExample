@@ -2,6 +2,7 @@
 def gitURL = "https://github.com/adrianosaviolli/SampleWithTests"
 
 pipeline {
+    agent any
     stages {
         stage('Poll SCM') {
             steps {

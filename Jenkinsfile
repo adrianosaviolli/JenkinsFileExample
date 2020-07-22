@@ -2,7 +2,7 @@ def gitURL = "https://github.com/adrianosaviolli/SampleWithTests"
 node {
     stage('Poll SCM') {
         script {
-            properties([pipelineTriggers([pollSCM('')])])
+            properties([pipelineTriggers([pollSCM('*/1 * * * *')])])
         }
         git branch: "develop", url: 'https://github.com/adrianosaviolli/SampleWithTests'
     }  

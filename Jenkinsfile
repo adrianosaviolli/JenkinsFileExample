@@ -1,5 +1,11 @@
 def gitURL = "https://github.com/adrianosaviolli/SampleWithTests"
 node {
+    stage('Poll SCM') {
+        script {
+            properties([pipelineTriggers([pollSCM('')])])
+        }
+        git branch: "develop", url: 'https://github.com/adrianosaviolli/SampleWithTests'
+    }    
     stage('Prepare') {
         deleteDir()
     }

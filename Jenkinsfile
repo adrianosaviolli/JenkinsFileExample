@@ -2,7 +2,7 @@ def gitURL = "https://github.com/adrianosaviolli/SampleWithTests"
 node {
     stage('Poll SCM') {
         script {
-            properties([pipelineTriggers([pollSCM('')])])
+            properties([pipelineTriggers([pollSCM('*/1 * * * *')])])
         }
         git branch: "develop", url: 'https://github.com/adrianosaviolli/SampleWithTests'
     }  
@@ -11,7 +11,7 @@ node {
     }
     stage('Checkout') {
         checkout(
-            [$class: 'GitSCM', branches: [[name: "master"]],
+            [$class: 'GitSCM', branches: [[name: "develop"]],
             extensions: [[$class: 'CloneOption', shallow: true, timeout: 50]],
             userRemoteConfigs: [[url: "$gitURL"]]]
         )

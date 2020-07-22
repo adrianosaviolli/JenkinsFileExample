@@ -1,11 +1,9 @@
 def gitURL = "https://github.com/adrianosaviolli/SampleWithTests"
 node {
-    agent {
-        docker {
-            label 'android'
-            image 'bradesco-vsmobile/android'
-            args '-u 0 -v android-build-gradle-cache:/home/gradle/.gradle -v android-build-sdk:/usr/local/android-sdk'
-        }
+    docker {
+        label 'android'
+        image 'bradesco-vsmobile/android'
+        args '-u 0 -v android-build-gradle-cache:/home/gradle/.gradle -v android-build-sdk:/usr/local/android-sdk'
     }
 
     options {
